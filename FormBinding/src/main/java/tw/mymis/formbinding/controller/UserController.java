@@ -50,7 +50,7 @@ public class UserController {
                 msg = "您的帳號已經成功註冊完畢";
                 break;
             case 2:
-                msg = "您的帳號已經在本系統註冊過,請使用登入功能";
+                msg = "<h3>您的帳號已經在本系統註冊過,請使用登入功能</h3>";
                 break;
             case 3:
                 msg = "帳號不可包含系統禁止關鍵字(select,insert,update,delete等 或是惡意字詞)";

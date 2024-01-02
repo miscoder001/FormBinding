@@ -17,6 +17,13 @@ public class EventUserDao {
         String sql1 = "insert into user(username,email,mobile,passwd) values ('" + user.getUsername() + "','" + user.getEmail() + "',";
         String sql2 = "insert into user(username,email,mobile,passwd) values ( ?,?,?,?)";
         return jdbcTemplate.update(sql2, user.getUsername(), user.getEmail(), user.getMobile(), user.getPasswd());
+    }
+
+    public long isUserExists(String username) {
+        String sql = "SELECT COUNT(*) FROM USER WHERE username=?";
+        // select count(*) 回傳一慮使用 long 型別
+        return jdbcTemplate.queryForObject(sql,Long.class, username);
 
     }
+
 }

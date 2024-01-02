@@ -26,7 +26,9 @@ public class UserRegistrationService {
         if (user.getUsername().contains("select") || user.getUsername().contains("delete")) {
             return 3;
         }
-
+        if( isUserExists(user.getUsername())) {
+            return 2;
+        }
         // 不存在  開始檢查資料是否合規
         // 過濾 惡意字詞 可能異常字串(select , inser, update, delete 等)
         // 開始進行 帳號新增作業
@@ -38,4 +40,13 @@ public class UserRegistrationService {
         }
     }
 
+    // 獨立寫成一個公用方法 讓確認帳號是否存在的功能可以分享 , 改密碼也需要檢查是有此帳號
+    public boolean isUserExists(String username) {
+        long count = userDao.isUserExists(username);
+        if( count > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

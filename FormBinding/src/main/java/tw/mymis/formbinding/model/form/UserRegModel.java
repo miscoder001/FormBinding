@@ -13,4 +13,6 @@ public class UserRegModel {
     private String username;
     private String email;
     private String mobile;
+    private String passwd;
+
 }

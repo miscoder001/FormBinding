@@ -38,13 +38,31 @@ public class UserController {
 
     @PostMapping("/regform2")
     public String UserRegProcess2(@ModelAttribute UserRegModel usermodel, Model model) {
+        String msg = null;
         // 使用者送 request 進來後 回傳 註冊表單名稱
           // 呼叫 service 開始進行新增
-            結果 =  userRegistrationService.registration(usermodel);
-
+            int result =  userRegistrationService.Registration(usermodel);
+        switch (result) {
+            case 0:
+                msg = "新增失敗";
+                break;
+            case 1:
+                msg = "您的帳號已經成功註冊完畢";
+                break;
+            case 2:
+                msg = "您的帳號已經在本系統註冊過,請使用登入功能";
+                break;
+            case 3:
+                msg = "帳號不可包含系統禁止關鍵字(select,insert,update,delete等 或是惡意字詞)";
+                break;
+            default:
+                msg = "其他原因 請聯絡本站管理人員";
+                break;
+        }
         // 結果通知
+
         model.addAttribute("user", usermodel.getUsername());
-        model.addAttribute("email", usermodel.getEmail());
+        model.addAttribute("mesg", msg);
 
         return "reg-result";
     }

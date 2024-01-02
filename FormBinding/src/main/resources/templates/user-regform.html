@@ -5,10 +5,19 @@
     <title>Title</title>
 </head>
 <body>
+    <form method="post" th:object="${usermodel}" action="/regform2">
+        姓名:    <input type="text"  th:field="*{username}" name="username"><br/>
+        email:  <input type="text"  th:field="*{email}"  name="email"><br/>
+        mobile: <input type="text"  th:field="*{mobile}" name="mobile"><br/>
+        <input type="submit" value="註冊"><br/>
+        <input type="reset" value="清除"><br/>
+    </form>
+
+<h2> 未綁定 th:object 到表單本身的寫法  </h2>
     <form method="post" action="/regform">
-        姓名:    <input type="text" name="username"><br/>
-        email:  <input type="text" name="email"><br/>
-        mobile: <input type="text" name="mobile"><br/>
+        姓名:    <input type="text"  th:field="*{usermodel.username}" name="username"><br/>
+        email:  <input type="text"  th:field="*{usermodel.email}"  name="email"><br/>
+        mobile: <input type="text"  th:field="*{usermodel.mobile}" name="mobile"><br/>
         <input type="submit" value="註冊"><br/>
         <input type="reset" value="清除"><br/>
     </form>

@@ -1,6 +1,5 @@
 package tw.mymis.formbinding.model.form;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,5 +13,4 @@ public class UserRegModel {
     private String username;
     private String email;
     private String mobile;
-
 }

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>檔案上傳功能</h1>
+
+    <form enctype="multipart/form-data" method="post" action="/upload2">
+        請選擇上傳檔案：　<input type="file" name="imgfile1" ><br/>
+        請選擇上傳檔案：　<input type="file" name="imgfile2" ><br/>
+        <input type="submit" value="上傳照片">
+    </form>
+
+<hr/>
+    <h1>多檔案上傳功能</h1>
+
+    <form enctype="multipart/form-data" method="post" action="/upload3">
+        請選擇上傳檔案：　<input type="file" name="imgfiles" multiple ><br/>
+
+        <input type="submit" value="上傳照片">
+    </form>
+</body>
+</html>

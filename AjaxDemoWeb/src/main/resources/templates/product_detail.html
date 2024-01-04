@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+
+   <h3>產品: <span id="product"  th:text="${product.getCategory()}"> 產品</span></h3>
+   <h3>型號: <span id="model" th:text="${product.getModel()}"> 顯示型號</span></h3>
+   <h3>數量: <span id="qty" th:text="${product.getQty()}"> 數量</span></h3>
+   <Button onclick="updateQty()">更新庫存</Button>
+
+<script>
+    function updateQty() {
+        $.get("/api/product", function(data, status){
+            $('#qty').html(data.qty);
+            console.log("Data: " + data.qty + "\nStatus: " + status);
+            console.log("Data: " + JSON.stringify(data) + "\nStatus: " + status);
+            console.log("Data: " + data + "\nStatus: " + status);
+        });
+    }
+</script>
+</body>
+</html>

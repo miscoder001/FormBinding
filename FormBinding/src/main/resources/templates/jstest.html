@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+</head>
+<body onload="setupTimer()">
+
+    <span id="clock" style="background-color: lightblue"> 這邊會顯示系統時間</span>
+
+  <button onclick="alert('你click 這個button')">觸發 js</button>
+  <br/>
+    <h3> hello 你應該可以看到我</h3>
+
+<div style="background-color: lawngreen;width: 500px; height: 300px;display: inline-block"
+     onmouseleave="document.getElementById('mesg').innerHTML='滑鼠離開了'"
+     onmouseenter="showElement()"
+     onmouseover="document.getElementById('mesg').innerHTML='滑鼠在領空內移動'"
+     onmousemove="document.getElementById('mesg').innerHTML= Date()"
+     onclick="alert('你click div 這個區域內')"></div>
+
+  <div id="mesg" style="background-color: #d1b3e0;width: 500px; height: 300px;display: inline-block"
+     onmouseenter="hideElement()"></div>
+
+<script>
+
+
+    function setupTimer() {
+        setInterval(updateDateTime, 1000)
+    }
+    function updateDateTime() {
+        document.getElementById('clock').innerHTML = Date();
+    }
+    function hideElement() {
+        $("h3").show();
+    }
+    function showElement() {
+        $("h3").hide();
+    }
+
+    $(document).ready(
+        function () {
+            $("h3").hide()
+        }
+    );
+</script>
+</body>
+</html>

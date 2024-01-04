@@ -79,4 +79,23 @@ public class FileController
         model.addAttribute("result", "存檔完畢");
         return "upload-result2";
     }
+
+    @PostMapping("/upload4")
+    public String handleUpload4(Model model, @RequestPart("imgfiles") List<MultipartFile> mpfiles) {
+        // 接收檔案 存檔
+
+        model.addAttribute("count", mpfiles.size());
+        for(MultipartFile mpfile : mpfiles) {
+            try {
+                mpfile.transferTo(Paths.get("c:/temp/" + mpfile.getOriginalFilename()));
+
+            } catch (IOException e) {
+                System.err.println("寫入存檔失敗");
+            }
+        }
+        //
+        model.addAttribute("result", "存檔完畢");
+        return "upload-result2";
+    }
+
 }

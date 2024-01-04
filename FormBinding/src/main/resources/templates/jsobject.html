@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    // 物件宣告 object
+    var car = {
+        type:"Fiat",
+        model:"500",
+        color:"white",
+        start: function() {
+            console.log("這是啟動功能")
+        },
+        stop: function () {
+            alert("煞車");
+        }
+    };
+    console.log( car.type)    // console.log 等於 System.out.println
+    console.log( car.color )
+    console.log( car.model)
+    car.stop();
+    car = 5;
+    car = "hello"
+    car = Date()
+
+    // c# , java
+    var mesg = "hello";  // 推論後 不可改變
+    mesg = 10;
+</script>
+
+</body>
+</html>

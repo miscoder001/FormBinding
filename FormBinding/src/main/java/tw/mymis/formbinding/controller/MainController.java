@@ -17,4 +17,10 @@ public class MainController {
         model.addAttribute("msg", "這是 Controller傳給首頁的資料");
         return "jstest";
     }
+
+    @GetMapping("/jsobj")
+    public String JsObj(Model model) {
+        model.addAttribute("msg", "這是 Controller傳給首頁的資料");
+        return "jsobject";
+    }
 }

@@ -3,11 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
 </head>
 <body>
+    <div id="page" style="background-color: lightblue; width: 1000px; height: 800px;">
 
+    </div>
+
+   <h3> hello </h3>
 <script>
     // 物件宣告 object
+    $('#page').load("https://www.mobile01.com")
+
     var car = {
         type:"Fiat",
         model:"500",
@@ -23,13 +30,15 @@
     console.log( car.color )
     console.log( car.model)
     car.stop();
-    car = 5;
-    car = "hello"
-    car = Date()
+    console.log( car )
+    console.log( JSON.stringify( car ) )
 
-    // c# , java
-    var mesg = "hello";  // 推論後 不可改變
-    mesg = 10;
+    // 標準JSON 格式
+    var carModel = { "Brand": "Honda" , "Model": "S2000" , "start": function () { console.log('S2000 發動')} }
+    //nsole.log(carModel.Model)
+    //nsole.log(carModel.start())
+
+
 </script>
 
 </body>

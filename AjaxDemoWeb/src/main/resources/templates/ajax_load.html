@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div id="block1" style="background-color: lightblue;width: 1000px;height: 500px;">
+    原始的網頁內容
+</div>
+<button onclick="loadContent()">載入頁面</button>
+
+<script>
+    setInterval(loadContent,1000);
+    function  loadContent() {
+        // $('#block1').load('http://localhost:8080/part1')
+        $('#block1').load('http://localhost:8080/aa')
+    }
+
+
+</script>
+</body>
+</html>

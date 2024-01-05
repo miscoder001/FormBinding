@@ -3,9 +3,12 @@ package tw.mymis.ajaxdemoweb.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import tw.mymis.ajaxdemoweb.model.Product;
 import tw.mymis.ajaxdemoweb.service.ProductService;
+
+import java.util.List;
 
 
 @RestController
@@ -13,8 +16,16 @@ public class ProductDataController {
     @Autowired
     ProductService productService;
     @GetMapping("/api/product")
-    public Product showProduct(Model model) {
-        Product p = productService.getProduct();
-        return p;
+    public List<Product> showProduct() {
+        return productService.getProduct();
+    }
+
+    @GetMapping("/api/productById")
+    public List<Product> queryByID(@RequestParam String pcode) {
+        return productService.getProductById(pcode);
+    }
+    @GetMapping("/api/productByScale")
+    public List<Product> queryByScale(@RequestParam String scale) {
+        return productService.getProductByScale(scale);
     }
 }

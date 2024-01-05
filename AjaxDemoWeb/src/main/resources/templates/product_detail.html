@@ -8,7 +8,6 @@
   </head>
   <body>
 
-
     <!-- Start Top Bar -->
     <div class="top-bar">
       <div class="row">
@@ -29,8 +28,8 @@
         </div>
         <div class="top-bar-right">
           <ul class="menu">
-            <li><input type="search" placeholder="Search"></li>
-            <li><button type="button" class="button">Search</button></li>
+            <li><input type="search" id="search-input" placeholder="Search"></li>
+            <li><button type="button" onclick="searchProduct()" class="button">Search</button></li>
           </ul>
         </div>
       </div>
@@ -41,7 +40,7 @@
     <div class="row columns">
       <nav aria-label="You are here:" role="navigation">
         <ul class="breadcrumbs">
-          <li><a href="#">Home</a></li>
+          <li><a href="/showproduct">Home</a></li>
           <li><a href="#">Features</a></li>
           <li class="disabled">Gene Splicing</li>
           <li>
@@ -70,8 +69,8 @@
         </div>
       </div>
       <div class="medium-6 large-5 columns">
-        <h3 th:text="${ product.getName() }">My Awesome Product</h3>
-        <p th:text="${ product.getDescription()}">Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus tortor. Nulla facilisi. Duis aliquet egestas purus in.</p>
+        <h3 id="p_name" th:text="${ product.getName() }">My Awesome Product</h3>
+        <p  id="p_desc" th:text="${ product.getDescription()}">Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus tortor. Nulla facilisi. Duis aliquet egestas purus in.</p>
 
         <label>比例
         <select>
@@ -86,7 +85,7 @@
             <label for="middle-label" class="middle">單價(美金)</label>
           </div>
           <div class="small-9 columns">
-            <span th:text="${'USD$ ' + product.getMsrp()}"> USD$ </span>
+            <span id="p_price" th:text="${'USD$ ' + product.getMsrp()}"> USD$ </span>
           </div>
         </div>
         <div class="row">
@@ -94,7 +93,7 @@
             <label for="middle-label" class="middle">庫存數量</label>
           </div>
           <div class="small-9 columns">
-            <span th:text="${product.getQty()}">  </span>
+            <span id="p_qty" th:text="${product.getQty()}">  </span>
           </div>
         </div>
         <div class="row">
@@ -119,8 +118,8 @@
     <div class="column row">
       <hr>
       <ul class="tabs" data-tabs id="example-tabs">
-        <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Reviews</a></li>
-        <li class="tabs-title"><a href="#panel2">Similar Products</a></li>
+        <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">消費者的評論</a></li>
+        <li class="tabs-title"><a href="#panel2">客人也會看的其他商品</a></li>
       </ul>
       <div class="tabs-content" data-tabs-content="example-tabs">
         <div class="tabs-panel is-active" id="panel1">
@@ -206,12 +205,25 @@
       </ul>
     </div>
 
-
-
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
     <script>
       $(document).foundation();
+      function searchProduct() {
+        let pcode = $('#search-input').val();
+        // alert("搜尋產品: " + pcode);
+        $.get( '/api/productById/' + pcode,
+                function (data , status) {
+                  console.log("發出 ajax .get 到 springboot api server 取資料結果:")
+                  let p = data[0];
+                  console.log( JSON.stringify(p));
+                  console.log(p.name);
+                  $('#p_name').html(p.name)
+                  console.log(p.description)
+                  $('#p_desc').html(p.description)
+                }
+        )
+      }
     </script>
   </body>
 </html>

@@ -52,19 +52,19 @@
 
     <div class="row">
       <div class="medium-6 columns">
-        <img width="650" height="350" class="thumbnail" th:src="@{${'/images/'+product.getCode()+'/1.jpg'}}">
+        <img id="p_img1" width="650" height="350" class="thumbnail" th:src="@{${'/images/'+product.getCode()+'/1.jpg'}}">
         <div class="row small-up-4">
           <div class="column">
-            <img width="250" height="200" class="thumbnail" th:src="@{${'/images/'+product.getCode()+'/1.jpg'}}">
+            <img id="p_img2" width="250" height="200" class="thumbnail" th:src="@{${'/images/'+product.getCode()+'/1.jpg'}}">
           </div>
           <div class="column">
-            <img width="250" height="200" class="thumbnail" th:src="@{${'/images/'+product.getCode()+'/2.jpg'}}">
+            <img id="p_img3" width="250" height="200" class="thumbnail" th:src="@{${'/images/'+product.getCode()+'/2.jpg'}}">
           </div>
           <div class="column">
-            <img width="250" height="200" class="thumbnail" th:src="@{${'/images/'+product.getCode()+'/3.jpg'}}">
+            <img id="p_img4" width="250" height="200" class="thumbnail" th:src="@{${'/images/'+product.getCode()+'/3.jpg'}}">
           </div>
           <div class="column">
-            <img width="250" height="200" class="thumbnail" th:src="@{${'/images/'+product.getCode()+'/4.jpg'}}">
+            <img id="p_img5" width="250" height="200" class="thumbnail" th:src="@{${'/images/'+product.getCode()+'/4.jpg'}}">
           </div>
         </div>
       </div>
@@ -221,6 +221,12 @@
                   $('#p_name').html(p.name)
                   console.log(p.description)
                   $('#p_desc').html(p.description)
+                  let pc = p.code;
+                  $('#p_img1').attr('src', '/images/' + pc + '/1.jpg');
+                  $('#p_img2').attr('src', '/images/' + pc + '/1.jpg');
+                  $('#p_img3').attr('src', '/images/' + pc + '/2.jpg');
+                  $('#p_img4').attr('src', '/images/' + pc + '/3.jpg');
+                  $('#p_img5').attr('src', '/images/' + pc + '/4.jpg');
                 }
         )
       }

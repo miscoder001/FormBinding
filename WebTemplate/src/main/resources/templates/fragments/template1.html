@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>template1</title>
+</head>
+<body>
+
+  <div th:fragment="header(company, url)">
+      <h2>公司名稱: <span th:text="${company}">這裡應該會顯示公司名稱</span> </h2>
+      <h3>公司網址: <span th:text="${url}">這裡應該會顯示公司網址</span></h3>
+  </div>
+
+  <div th:fragment="footer">
+      <h3> 這裡預設我會放 footer</h3>
+  </div>
+
+</body>
+</html>

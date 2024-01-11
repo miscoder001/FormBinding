@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>footer</title>
+</head>
+<body>
+
+  <div th:fragment="header(name, url)">
+      商店 <h3 th:text="${name}"> template  </h3>
+      網站 <a th:href="@{/url}" th:text="${url}"></a>
+      <h3> 這是 header</h3>
+  </div>
+</body>
+</html>

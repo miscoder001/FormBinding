@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index首頁</title>
+</head>
+<body>
+   <div th:insert="/fragments/template1.html :: header(${name} ,${url} )"></div>
+   <h1> 這是預設在 index 內的標籤 上面用 insert 下方用 replace </h1>
+    <hr/>
+
+   <p th:insert="/fragments/template1.html :: footer"></p>
+</body>
+</html>
